@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>我的博客</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    h1 {）
-      color: #333;
-    }
-
-    .post {
-      margin-bottom: 30px;
-    }
-
-    .post h2 {
-      color: #666;
-    }
-
-    .post p {
-      line-height: 1.5;
-    }
-  </style>
+    <title>音游示例</title>
+    <style>
+        #game-container {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            position: relative;
+        }
+        
+        .note {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>我的博客</h1>
-  </header>
+    <h1>音游示例</h1>
+    <div id="game-container">
+        <!-- 音符 -->
+    </div>
 
-  <section class="post">
-    <h2>文章标题</h2>
-    <p>文章内容...</p>
-  </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var container = document.getElementById("game-container");
+            
+            // 创建音符
+            function createNote() {
+                var note = document.createElement("div");
+                note.className = "note";
+                note.style.left = Math.random() * (container.offsetWidth - 50) + "px";
+                container.appendChild(note);
 
-  <section class="post">
-    <h2>另一篇文章标题</h2>
-    <p>另一篇文章内容...</p>
-  </section>
+                // 音符下落
+                var intervalId = setInterval(function() {
+                    var top = note.offsetTop;
+                    if (top >= container.offsetHeight - note.offsetHeight) {
+                        clearInterval(intervalId);
+                        container.removeChild(note);
+                    } else {
+                        note.style.top = top + 10 + "px";
+                    }
+                }, 100);
+            }
 
-  <footer>
-    <p>&copy; 2023 我的博客. All rights reserved.</p>
-  </footer>
+            // 按下按键时创建音符
+            document.addEventListener("keydown", function(event) {
+                if (event.key === " ") {
+                    createNote();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
