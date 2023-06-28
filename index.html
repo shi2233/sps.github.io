@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Video Sharing Website</title>
-  <style>
-    /* 添加一些基本的样式 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #f44336;
-      color: #ffffff;
-      padding: 10px;
-      text-align: center;
-    }
-    #video-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .video-card {
-      width: 300px;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-    }
-    .video-card h3 {
-      margin-top: 0;
-    }
-  </style>
+    <title>网易云音乐播放器</title>
+    <style>
+        #player {
+            width: 300px;
+            margin: 20px auto;
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        #player img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        #player h2 {
+            margin-bottom: 5px;
+        }
+        
+        #player audio {
+            width: 100%;
+        }
+        
+        #player button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Video Sharing Website</h1>
-  </header>
-  
-  <div id="video-container">
-    <!-- 添加视频卡片 -->
-    <div class="video-card">
-      <h3>Video 1</h3>
-      <iframe width="280" height="157" src="https://m.youtube.com/watch?v=PgBvV9ofjmA&pp=ygUM44Ki44Kk44OJ44Or" frameborder="0" allowfullscreen></iframe>
+    <div id="player">
+        <img src="album_cover.jpg" alt="Album Cover">
+        <h2>Song Title</h2>
+        <h3>Artist Name</h3>
+        <audio id="audio" controls>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+        <button id="playButton">播放</button>
+        <button id="pauseButton">暂停</button>
     </div>
-    
-    <div class="video-card">
-      <h3>Video 2</h3>
-      <iframe width="280" height="157" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-    </div>
-    
-    <!-- 添加更多视频卡片... -->
-  </div>
+
+    <script>
+        var audio = document.getElementById('audio');
+        var playButton = document.getElementById('playButton');
+        var pauseButton = document.getElementById('pauseButton');
+        
+        playButton.addEventListener('click', function() {
+            audio.play();
+        });
+        
+        pauseButton.addEventListener('click', function() {
+            audio.pause();
+        });
+    </script>
 </body>
 </html>
