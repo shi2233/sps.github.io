@@ -1,75 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>我的世界手机游戏</title>
+  <title>My Video Sharing Website</title>
   <style>
-    #game-container {
-      width: 400px;
-      height: 400px;
-      border: 1px solid black;
-      position: relative;
+    /* 添加一些基本的样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    .block {
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      background-color: gray;
-      border: 1px solid black;
+    header {
+      background-color: #f44336;
+      color: #ffffff;
+      padding: 10px;
+      text-align: center;
     }
-    .player {
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      background-color: blue;
-      border: 1px solid black;
+    #video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .video-card {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+    }
+    .video-card h3 {
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
-  <div id="game-container">
-    <div class="block" style="top: 0px; left: 0px;"></div>
-    <div class="block" style="top: 0px; left: 40px;"></div>
-    <div class="block" style="top: 40px; left: 0px;"></div>
-    <div class="player" id="player"></div>
+  <header>
+    <h1>Welcome to My Video Sharing Website</h1>
+  </header>
+  
+  <div id="video-container">
+    <!-- 添加视频卡片 -->
+    <div class="video-card">
+      <h3>Video 1</h3>
+      <iframe width="280" height="157" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-card">
+      <h3>Video 2</h3>
+      <iframe width="280" height="157" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <!-- 添加更多视频卡片... -->
   </div>
-
-  <script>
-    // 获取游戏容器和玩家元素
-    var gameContainer = document.getElementById("game-container");
-    var player = document.getElementById("player");
-
-    // 初始化玩家位置
-    var playerTop = 0;
-    var playerLeft = 0;
-    player.style.top = playerTop + "px";
-    player.style.left = playerLeft + "px";
-
-    // 监听键盘按键事件
-    document.addEventListener("keydown", function(event) {
-      // 根据按键调整玩家位置
-      switch(event.key) {
-        case "ArrowUp":
-          playerTop -= 40;
-          break;
-        case "ArrowDown":
-          playerTop += 40;
-          break;
-        case "ArrowLeft":
-          playerLeft -= 40;
-          break;
-        case "ArrowRight":
-          playerLeft += 40;
-          break;
-      }
-
-      // 确保玩家位置在游戏容器范围内
-      playerTop = Math.max(0, Math.min(playerTop, gameContainer.clientHeight - player.clientHeight));
-      playerLeft = Math.max(0, Math.min(playerLeft, gameContainer.clientWidth - player.clientWidth));
-
-      // 更新玩家位置
-      player.style.top = playerTop + "px";
-      player.style.left = playerLeft + "px";
-    });
-  </script>
 </body>
 </html>
