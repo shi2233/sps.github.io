@@ -1,62 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>点击游戏</title>
-  <style>
-    #game-container {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-    }
-
-    #score {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    #game-area {
-      width: 200px;
-      height: 200px;
-      background-color: #ccc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-  </style>
+    <title>视觉小说</title>
+    <style>
+        /* CSS 样式可以在这里添加 */
+        .story-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-  <div id="game-container">
-    <div id="score">Score: 0</div>
-    <div id="game-area"></div>
-  </div>
+    <h1>我的视觉小说</h1>
 
-  <script>
-    // 游戏逻辑
-    var score = 0;
+    <div class="story-page">
+        <h2>第一页</h2>
+        <img class="story-image" src="image1.jpg" alt="图像描述">
+        <p>第一页的描述和对话...</p>
+    </div>
 
-    function increaseScore() {
-      score++;
-      document.getElementById('score').textContent = 'Score: ' + score;
-    }
+    <div class="story-page">
+        <h2>第二页</h2>
+        <img class="story-image" src="image2.jpg" alt="图像描述">
+        <p>第二页的描述和对话...</p>
+    </div>
 
-    function resetGame() {
-      score = 0;
-      document.getElementById('score').textContent = 'Score: 0';
-    }
+    <div class="story-page">
+        <h2>第三页</h2>
+        <img class="story-image" src="image3.jpg" alt="图像描述">
+        <p>第三页的描述和对话...</p>
+    </div>
 
-    // 游戏初始化
-    function initializeGame() {
-      document.getElementById('game-area').addEventListener('click', increaseScore);
-      resetGame();
-    }
+    <!-- 添加更多的 story-page div，每个 div 代表故事的一页 -->
 
-    // 在页面加载完毕后开始游戏
-    window.addEventListener('load', initializeGame);
-  </script>
 </body>
 </html>
