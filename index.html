@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>原神风格游戏</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        #game-container {
-            width: 800px;
-            height: 600px;
-            background-color: #000;
-            position: relative;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .character {
-            width: 50px;
-            height: 50px;
-            background-color: #ff0000;
-            position: absolute;
-        }
-
-        #player {
-            background-color: #00ff00;
-        }
-    </style>
+  <title>我的世界手机游戏</title>
+  <style>
+    #game-container {
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+      position: relative;
+    }
+    .block {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-color: gray;
+      border: 1px solid black;
+    }
+    .player {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-color: blue;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="player" class="character"></div>
-    </div>
+  <div id="game-container">
+    <div class="block" style="top: 0px; left: 0px;"></div>
+    <div class="block" style="top: 0px; left: 40px;"></div>
+    <div class="block" style="top: 40px; left: 0px;"></div>
+    <div class="player" id="player"></div>
+  </div>
 
-    <script>
-        document.addEventListener('keydown', function(event) {
-            moveCharacter(event.keyCode);
-        });
+  <script>
+    // 获取游戏容器和玩家元素
+    var gameContainer = document.getElementById("game-container");
+    var player = document.getElementById("player");
 
-        function moveCharacter(keyCode) {
-            var player = document.getElementById('player');
-            var left = parseInt(player.style.left) || 0;
-            var top = parseInt(player.style.top) || 0;
+    // 初始化玩家位置
+    var playerTop = 0;
+    var playerLeft = 0;
+    player.style.top = playerTop + "px";
+    player.style.left = playerLeft + "px";
 
-            // 根据按键代码来移动角色
-            switch (keyCode) {
-                case 37: // 左箭头键
-                    left -= 10;
-                    break;
-                case 38: // 上箭头键
-                    top -= 10;
-                    break;
-                case 39: // 右箭头键
-                    left += 10;
-                    break;
-                case 40: // 下箭头键
-                    top += 10;
-                    break;
-            }
+    // 监听键盘按键事件
+    document.addEventListener("keydown", function(event) {
+      // 根据按键调整玩家位置
+      switch(event.key) {
+        case "ArrowUp":
+          playerTop -= 40;
+          break;
+        case "ArrowDown":
+          playerTop += 40;
+          break;
+        case "ArrowLeft":
+          playerLeft -= 40;
+          break;
+        case "ArrowRight":
+          playerLeft += 40;
+          break;
+      }
 
-            // 更新角色的位置
-            player.style.left = left + 'px';
-            player.style.top = top + 'px';
-        }
-    </script>
+      // 确保玩家位置在游戏容器范围内
+      playerTop = Math.max(0, Math.min(playerTop, gameContainer.clientHeight - player.clientHeight));
+      playerLeft = Math.max(0, Math.min(playerLeft, gameContainer.clientWidth - player.clientWidth));
+
+      // 更新玩家位置
+      player.style.top = playerTop + "px";
+      player.style.left = playerLeft + "px";
+    });
+  </script>
 </body>
 </html>
