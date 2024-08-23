@@ -1,60 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>网易云音乐播放器</title>
-    <style>
-        #player {
-            width: 300px;
-            margin: 20px auto;
-            background-color: #f2f2f2;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        #player img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        
-        #player h2 {
-            margin-bottom: 5px;
-        }
-        
-        #player audio {
-            width: 100%;
-        }
-        
-        #player button {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div id="player">
-        <img src="album_cover.jpg" alt="Album Cover">
-        <h2>Song Title</h2>
-        <h3>Artist Name</h3>
-        <audio id="audio" controls>
-            <source src="song.mp3" type="audio/mpeg">
-        </audio>
-        <button id="playButton">播放</button>
-        <button id="pauseButton">暂停</button>
-    </div>
+<html lang="en">
 
-    <script>
-        var audio = document.getElementById('audio');
-        var playButton = document.getElementById('playButton');
-        var pauseButton = document.getElementById('pauseButton');
-        
-        playButton.addEventListener('click', function() {
-            audio.play();
-        });
-        
-        pauseButton.addEventListener('click', function() {
-            audio.pause();
-        });
-    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玻璃按钮</title>
+    <link rel="stylesheet" href="./19-玻璃按钮.css">
+</head>
+
+<body>
+    <div class="radio-input">
+        <div class="glass">
+            <div class="glass-inner">
+            </div>
+        </div>
+        <div class="selector">
+            <div class="choice">
+                <div>
+                    <input type="radio" id="one" name="number-selector" value="one" checked="true"
+                        class="choice-circle">
+                    <div class="ball"></div>
+                </div>
+                <label class="choice-name" for="one">1</label>
+            </div>
+            <div class="choice">
+                <div>
+                    <input type="radio" id="two" name="number-selector" value="two" class="choice-circle">
+                    <div class="ball"></div>
+                </div>
+                <label class="choice-name">2</label>
+            </div>
+            <div class="choice">
+                <div>
+                    <input type="radio" id="three" name="number-selector" value="three" class="choice-circle">
+                    <div class="ball"></div>
+                </div>
+                <label class="choice-name" for="three">3</label>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
