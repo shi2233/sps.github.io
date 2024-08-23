@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>玻璃按钮</title>
-    <link rel="stylesheet" href="./19-玻璃按钮.css">
+    <title>鸣潮</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .hero {
+            height: 100vh;
+            background-image: url('https://example.com/your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .content {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="radio-input">
-        <div class="glass">
-            <div class="glass-inner">
-            </div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">鸣潮</a>
         </div>
-        <div class="selector">
-            <div class="choice">
-                <div>
-                    <input type="radio" id="one" name="number-selector" value="one" checked="true"
-                        class="choice-circle">
-                    <div class="ball"></div>
-                </div>
-                <label class="choice-name" for="one">1</label>
-            </div>
-            <div class="choice">
-                <div>
-                    <input type="radio" id="two" name="number-selector" value="two" class="choice-circle">
-                    <div class="ball"></div>
-                </div>
-                <label class="choice-name">2</label>
-            </div>
-            <div class="choice">
-                <div>
-                    <input type="radio" id="three" name="number-selector" value="three" class="choice-circle">
-                    <div class="ball"></div>
-                </div>
-                <label class="choice-name" for="three">3</label>
-            </div>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">关于我们</a>
+            <a href="#">游戏特色</a>
+            <a href="#">联系我们</a>
         </div>
     </div>
-</body>
 
+    <div class="hero">
+        <h1>欢迎来到鸣潮</h1>
+        <p>体验极致的游戏世界</p>
+    </div>
+
+    <div class="content">
+        <h2>关于我们</h2>
+        <p>鸣潮是一款沉浸式的游戏，带你进入一个全新的虚拟世界。在这里，你将探索未知的领域，面对前所未有的挑战。</p>
+    </div>
+</body>
 </html>
